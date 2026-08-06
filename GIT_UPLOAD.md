@@ -1,7 +1,14 @@
 # 📤 GitHub 업로드 명령어
 
 > GitHub: **ASYNCGUY-dot**
-> 저장소 이름 제안: **`korean-sentiment-nlp`** (바꾸고 싶으면 아래 전부 같이 수정)
+> 저장소 이름: **`Huggingface-work_korean-sentiment_nlp`**
+>
+> ⚠️ 원래 원하신 이름은 `Huggingface work_korean sentiment_nlp` 였지만,
+> **GitHub 저장소 이름에는 공백을 쓸 수 없습니다.**
+> 입력하면 자동으로 하이픈(`-`)으로 바뀌므로, 미리 변환한 형태를 씁니다.
+>
+> 허용 문자: 영문·숫자·`-`·`_`·`.`
+> (허깅페이스 저장소와 같은 규칙입니다. `title` 한글 문제와 동일한 이유예요)
 
 ---
 
@@ -77,7 +84,7 @@ https://github.com/new
 
 | 항목 | 값 |
 |---|---|
-| Repository name | `korean-sentiment-nlp` |
+| Repository name | `Huggingface-work_korean-sentiment_nlp` |
 | Description | `klue/roberta-base 파인튜닝부터 배포까지 · 정확도 88%` |
 | Public / Private | **Public** (포트폴리오용) |
 | Add README | ❌ **체크 해제** (이미 있음) |
@@ -92,7 +99,7 @@ https://github.com/new
 
 ```bat
 git branch -M main
-git remote add origin https://github.com/ASYNCGUY-dot/korean-sentiment-nlp.git
+git remote add origin https://github.com/ASYNCGUY-dot/Huggingface-work_korean-sentiment_nlp.git
 git push -u origin main
 ```
 
@@ -113,7 +120,7 @@ git push -u origin main
 ## 5️⃣ 업로드 후 확인
 
 ```
-https://github.com/ASYNCGUY-dot/korean-sentiment-nlp
+https://github.com/ASYNCGUY-dot/Huggingface-work_korean-sentiment_nlp
 ```
 
 - [ ] README가 첫 화면에 예쁘게 렌더링되는가

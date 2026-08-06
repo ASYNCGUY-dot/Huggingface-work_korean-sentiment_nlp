@@ -120,8 +120,8 @@ clf("이건 진짜 내 인생 영화다.. 너무 감동이야.")
 ## 🚀 실행 방법
 
 ```bash
-git clone https://github.com/ASYNCGUY-dot/korean-sentiment-nlp.git
-cd korean-sentiment-nlp
+git clone https://github.com/ASYNCGUY-dot/Huggingface-work_korean-sentiment_nlp.git
+cd Huggingface-work_korean-sentiment_nlp
 
 python -m venv .venv
 .venv\Scripts\activate          # Windows
