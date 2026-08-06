@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8">
+<title>모델 카드 — colab_model</title>
+<style>
+ body{font-family:'Malgun Gothic',sans-serif;max-width:900px;margin:40px auto;padding:0 20px;line-height:1.7;color:#222}
+ h1{border-bottom:3px solid #333;padding-bottom:10px}
+ h2{margin-top:36px;color:#1a4d80}
+ table{border-collapse:collapse;width:100%;margin:16px 0}
+ th,td{border:1px solid #ddd;padding:9px 12px;text-align:left;font-size:14px}
+ th{background:#f4f6f8}
+ .metric{display:inline-block;background:#f4f6f8;border-radius:8px;padding:14px 20px;margin:6px 8px 6px 0;min-width:130px}
+ .metric b{display:block;font-size:26px;color:#1a4d80}
+ .warn{background:#fff4e5;border-left:4px solid #ff9800;padding:12px 16px;margin:16px 0}
+ img{max-width:100%;border:1px solid #eee;border-radius:6px}
+ code{background:#f4f6f8;padding:2px 6px;border-radius:4px}
+</style></head><body>
+<h1>모델 카드</h1>
+<p><b>모델</b> colab_model (klue/roberta-base 파인튜닝)<br>
+<b>작업</b> 한국어 영화 리뷰 감성 분류 (긍정/부정)<br>
+<b>평가 데이터</b> NSMC test split 2,000건 — 학습에 사용되지 않음<br>
+<b>작성</b> 2026-08-06 12:15</p>
+
+<h2>성능 지표</h2>
+<div class="metric">정확도<b>88.0%</b>±1.4%</div>
+<div class="metric">정밀도<b>0.870</b></div>
+<div class="metric">재현율<b>0.884</b></div>
+<div class="metric">F1<b>0.877</b></div>
+<div class="metric">ROC-AUC<b>0.951</b></div>
+<p>기준선(다수 클래스만 답하는 모델)은 <code>51.6%</code> 입니다.
+정확도는 점 추정치가 아니라 <b>86.6% ~ 89.4%</b> 구간으로 읽어야 합니다.</p>
+
+<h2>배포 게이트</h2>
+<table><tr><th></th><th>항목</th><th>근거</th></tr>
+<tr><td>✅</td><td>기준선 초과</td><td>정확도 하한 0.8658 vs 기준선 0.5165  → 신뢰구간 하한이 기준선보다 높음</td></tr>
+<tr><td>✅</td><td>오류 균형</td><td>FP 128 / FN 112 (비율 1.14배)  → 균형적</td></tr>
+<tr><td>✅</td><td>판별력(ROC-AUC)</td><td>AUC 0.9511  → 0.5=무작위 / 0.7=쓸만함 / 0.8=좋음 / 0.9=우수</td></tr>
+<tr><td>✅</td><td>데이터 누수 없음</td><td>F1 0.8769  → 정상 범위</td></tr>
+<tr><td>✅</td><td>표본 충분</td><td>2,000건 (오차 ±1.4%)  → 1,000건 미만이면 오차가 커서 판단 곤란</td></tr>
+<tr><td>✅</td><td>확신도 캘리브레이션</td><td>맞을 때 0.952 / 틀릴 때 0.814 (차이 +0.138)  → 틀릴 때 확신이 낮음 = 정직한 모델</td></tr>
+</table>
+<p><b>통과 6/6</b></p>
+
+<h2>운영 시나리오</h2>
+<table><tr><th>목적</th><th>임계값</th><th>정밀도</th><th>재현율</th><th>FP</th><th>FN</th></tr>
+<tr><td>F1 최대 (균형)</td><td>0.45</td><td>0.8653</td><td>0.8966</td><td>135</td><td>100</td></tr>
+<tr><td>정밀도 95% 이상 유지</td><td>달성 불가</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>재현율 95% 이상 유지</td><td>0.10</td><td>0.7772</td><td>0.9524</td><td>264</td><td>46</td></tr>
+</table>
+<div class="warn"><b>임계값은 개발자가 정하지 않습니다.</b>
+위 선택지를 서비스 책임자에게 제시하고, 무엇을 포기할지 함께 결정합니다.</div>
+
+<h2>알려진 한계</h2>
+<ul>
+<li>학습 데이터는 <b>영화 리뷰</b>입니다. 다른 도메인(상품평, 뉴스, 업무 메일)에서는 성능이 보장되지 않습니다.</li>
+<li>부정 표현이 우회적인 문장("기대했던 것과는 좀 다르네요")에 약합니다.</li>
+<li>학습 어휘에 없는 표현이 들어오면 확신도는 높지만 결과는 신뢰할 수 없습니다.</li>
+<li>2지선다 모델이라 <b>"중립"이나 "모르겠음"을 출력할 수 없습니다.</b></li>
+</ul>
+
+<h2>그래프</h2>
+<img src="model_report.png" alt="성능 그래프">
+
+<hr><p style="color:#888;font-size:13px">
+DONGA KDT 허깅페이스 과정 STAGE 4 산출물 · 자동 생성</p>
+</body></html>
