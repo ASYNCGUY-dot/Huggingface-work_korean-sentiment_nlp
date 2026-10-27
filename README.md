@@ -1,5 +1,8 @@
 <div align="center">
 
+> **포트폴리오 안내:** [문제 · 구현 · 검증 근거 · 한계](docs/PORTFOLIO_OVERVIEW.md)
+
+
 # 🎬 한국어 영화 리뷰 감성 분석
 
 **`klue/roberta-base` 파인튜닝부터 배포까지 — 5일간의 전 과정 기록**
